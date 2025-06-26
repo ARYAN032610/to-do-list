@@ -1,4 +1,4 @@
-# 🌸 Pink To-Do App
+# 🌸 To-Do App
 
 A beautiful, responsive, multi-page To-Do List web app — fully built with **HTML, CSS, and JavaScript** (no backend or PHP).  
 Add, complete, and delete tasks with ease. All your tasks are stored locally in your browser.
