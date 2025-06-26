@@ -1,0 +1,159 @@
+/* ================== THEME & GLOBAL ================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+  --pink-500: #ec4899;
+  --pink-600: #db2777;
+  --green-500: #10b981;
+  --green-600: #059669;
+  --red-500:   #ef4444;
+  --red-600:   #dc2626;
+
+  --bg-grad: linear-gradient(135deg, #ffd4ea 0%, #ffe7f7 100%);
+  --card-bg: #ffffff;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, .08);
+  --maxw: 500px;
+
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* Make text look smoother */
+body { -webkit-font-smoothing: antialiased; }
+
+/* ================== LAYOUT ================== */
+body {
+  min-height: 100vh;
+  background: var(--bg-grad);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== Top nav ===== */
+nav {
+  width: 100%;
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: center;           /* center links horizontally */
+  gap: 1.5rem;
+  padding: 0.9rem 1rem;
+  position: sticky; top: 0; z-index: 10;
+}
+
+nav a {
+  color: #555;
+  text-decoration: none;
+  font-weight: 600;
+  padding: .4rem .9rem;
+  border-radius: var(--radius);
+  transition: background .25s, color .25s;
+}
+nav a.active,
+nav a:hover { background: var(--pink-500); color: #fff; }
+
+/* ===== Shared card wrapper ===== */
+main {
+  width: 90%;
+  max-width: var(--maxw);
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem 1.75rem;
+  margin: 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+main.center { text-align: center; }
+
+/* ================== TYPOGRAPHY ================== */
+h1.title,
+main h1 { font-size: 1.7rem; font-weight: 600; }
+
+/* ================== INPUT + BUTTON ================== */
+.input-group {
+  display: flex;
+  gap: .75rem;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: .7rem .9rem;
+  border: 2px solid #fbcfe8;
+  border-radius: var(--radius);
+  font-size: .95rem;
+}
+
+button,
+.btn {
+  background: var(--pink-500);
+  border: none;
+  color: #fff;
+  padding: .72rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .25s, transform .15s;
+}
+button:hover,
+.btn:hover   { background: var(--pink-600); transform: translateY(-1px); }
+button:active,
+.btn:active  { transform: none; }
+
+/* ================== LIST ================== */
+ul { list-style: none; }
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .8rem;
+  background: #fdf2f8;
+  border: 2px solid #fbcfe8;
+  border-radius: var(--radius);
+  padding: .65rem .9rem;
+  font-size: .95rem;
+  word-break: break-word;
+}
+
+li.done {
+  background: #fce7f3;
+  text-decoration: line-through;
+  opacity: .65;
+}
+
+/* Action buttons in list */
+.actions { display: flex; gap: .45rem; }
+
+.complete-btn,
+.delete-btn {
+  width: 32px; height: 32px;
+  display: grid; place-content: center;
+  border: none; border-radius: 50%;
+  font-weight: 700; font-size: 1rem;
+  color: #fff; cursor: pointer;
+  transition: background .25s;
+}
+.complete-btn { background: var(--green-500); }
+.complete-btn:hover { background: var(--green-600); }
+.delete-btn   { background: var(--red-500); }
+.delete-btn:hover   { background: var(--red-600); }
+
+/* ================== MISC ================== */
+.info {
+  text-align: center;
+  color: #666;
+  font-size: .9rem;
+}
+
+/* ================== SMALL SCREENS ================== */
+@media (max-width: 480px) {
+  nav { gap: .9rem; }
+  button, .btn { padding: .68rem 1rem; }
+  .complete-btn, .delete-btn { width: 28px; height: 28px; }
+}
